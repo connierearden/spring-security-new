@@ -12,7 +12,7 @@
 <body>
 
 <form th:method="POST" th:action="@{/users/new}" th:object="${user}">
-    <label for="id">age</label>
+    <label for="id">ID</label>
     <input type="number" th:field="*{id}" id="id"><!--th:action="@{/users}" - туда будет направлен запрос-->
     <label for="name">name</label> <!--label для подсказки, что нужно вводить, for="name" - как и id у input-->
     <input type="text" th:field="*{name}" id="name">  <!--field="*{name}" - это поле name класса user; id нужен для label-->
