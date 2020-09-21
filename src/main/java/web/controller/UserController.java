@@ -4,9 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import web.model.User;
 import web.service.UserService;
 
@@ -29,6 +27,38 @@ public class UserController {
 		model.addAttribute("users", list);
 		return "admin";
 	}
+
+	@GetMapping("/users/new")  // по /users/new вернется форма для создания человека
+	public String createPerson (User user) { // если используем таймлиф, мы должны передать объект, для которого форма нужна
+		return "new";
+	}
+
+	@PostMapping("/users/new")
+	public String create (User user) {
+		userService.saveUser(user);
+		return "redirect:/users";
+	}
+
+	@GetMapping("/users/{id}")
+	public String deleteUser (@PathVariable("id") Long id) {
+		userService.deleteUser(id);
+		return "redirect:/users";
+	}
+
+	@GetMapping("/users/update/{id}")
+	public String updatePerson (@PathVariable("id") Long id, Model model) {
+		User user = userService.findUserById(id);
+		System.out.println(user);
+		model.addAttribute("user", user);
+		return "update";
+	}
+	@PostMapping("/users/update")
+	public String update (@ModelAttribute("user") User user) {
+		userService.updateUser(user);
+		return "redirect:/users";
+	}
+
+
 
 	@RequestMapping(value = "hello", method = RequestMethod.GET)
 	public String printWelcome(ModelMap model) {

@@ -58,8 +58,8 @@ public class UserServiceImpl implements  UserService, UserDetailsService {
     @Transactional
     @Override
     public void updateUser(User user) {
-        if (!user.getName().isEmpty() && !user.getPassword().isEmpty()){
+        //if (!user.getName().isEmpty() && !user.getPassword().isEmpty()){
             userDao.updateUser(user);
-        }
+
     }
 }

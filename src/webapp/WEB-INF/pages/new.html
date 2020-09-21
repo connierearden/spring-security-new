@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Car</title>
+    <style>
+        table th, table td {padding: 5px;}
+    </style>
+</head>
+<title>Title</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/users/new}" th:object="${user}">  <!--th:action="@{/users}" - туда будет направлен запрос-->
+    <label for="name">name</label> <!--label для подсказки, что нужно вводить, for="name" - как и id у input-->
+    <input type="text" th:field="*{name}" id="name">  <!--field="*{name}" - это поле name класса user; id нужен для label-->
+    <label for="age">age</label>
+    <input type="number" th:field="*{age}" id="age">
+    <label for="password">pass</label>
+    <input type="text" th:field="*{password}" id="password">
+<!--    <label for="role">role</label>
+    <select id="role" th:field="*{roles}">
+        <option th:value="'M'" th:text="Male"></option>
+        <option th:value="'F'" th:text="Female"></option>
+    </select>-->
+    <input type="submit" value="Create">
+</form>
+</body>
+</html>
