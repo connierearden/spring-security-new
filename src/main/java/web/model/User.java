@@ -19,12 +19,9 @@ public class User implements UserDetails {
     private int age;
     @Column(name = "password")
     private String password;
-
+/*
     @Transient
-    transient private String confirmPassword;
-/*    @ManyToMany (cascade = { CascadeType.ALL })
-    @JoinTable(name = "user_roles", joinColumns = @JoinColumn (name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))*/
+    transient private String confirmPassword;*/
 
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
@@ -100,13 +97,6 @@ public class User implements UserDetails {
         this.age = age;
     }
 
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
-    }
 
     public Set<Role> getRoles() {
         return roles;
@@ -123,7 +113,6 @@ public class User implements UserDetails {
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", password='" + password + '\'' +
-                ", confirmPassword='" + confirmPassword + '\'' +
                 ", roles=" + roles +
                 '}';
     }

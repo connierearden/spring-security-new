@@ -13,7 +13,7 @@
 <form th:method="POST" th:action="@{/users/update}" th:object="${user}">
     <!--th:action="@{/users}" - туда будет направлен запрос-->
     <label for="id">id</label> <!--label для подсказки, что нужно вводить, for="name" - как и id у input-->
-    <input type="text" th:field="*{id}" id="id">
+    <input type="number" th:field="*{id}" id="id">
 
     <label for="name">name</label> <!--label для подсказки, что нужно вводить, for="name" - как и id у input-->
     <input type="text" th:field="*{name}" id="name">  <!--field="*{name}" - это поле name класса user; id нужен для label-->
