@@ -48,7 +48,7 @@ public class UserController {
 	@GetMapping("/users/update/{id}")
 	public String updatePerson (@PathVariable("id") Long id, Model model) {
 		User user = userService.findUserById(id);
-		System.out.println(user);
+		//System.out.println(user);
 		model.addAttribute("user", user);
 		return "update";
 	}

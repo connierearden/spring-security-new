@@ -62,6 +62,7 @@ public class UserDaoImpl implements UserDao {
         query.setParameter("id", user.getId());
         query.setParameter("age", user.getAge());
         query.setParameter("pass", user.getPassword());
+        //query.setParameter("roles", user.getRoles());
         query.executeUpdate();
     }
 
