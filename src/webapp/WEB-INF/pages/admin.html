@@ -25,10 +25,11 @@
         <td th:utext="${user.age}">nnn</td>
         <td th:utext="${user.password}">nnn</td>
         <td th:utext="${user.roles}">nnn</td>
-        <td><button type="button"><a th:href="@{/users/update/{id}(id=${user.id})}">Update</a></button></td>
-        <td><button type="button"><a th:href="@{/users/{id}(id=${user.getId()})}">delete</a></button></td>
+        <td><button type="button"><a th:href="@{/admin/update/{id}(id=${user.id})}">Update</a></button></td>
+        <td><button type="button"><a th:href="@{/admin/{id}(id=${user.getId()})}">delete</a></button></td>
     </tr>
 </table>
-<button type="button"><a href="/users/new">Create new user</a></button>
+<button type="button"><a href="/admin/new">Create new user</a></button>
+<button type="button"><a th:href="@{/logout}">Logout</a></button>
 </body>
 </html>

@@ -10,7 +10,7 @@
 <title>Title</title>
 </head>
 <body>
-<form th:method="POST" th:action="@{/users/update}" th:object="${user}">
+<form th:method="POST" th:action="@{/admin/update}" th:object="${user}">
     <!--th:action="@{/users}" - туда будет направлен запрос-->
     <label for="id">id</label> <!--label для подсказки, что нужно вводить, for="name" - как и id у input-->
     <input type="number" th:field="*{id}" id="id">
@@ -28,6 +28,7 @@
         <option value="admin">admin</option>
     </select>-->
     <input type="submit" value="update">
+    <button type="button"><a th:href="@{/logout}">Logout</a></button>
 </form>
 </body>
 </html>

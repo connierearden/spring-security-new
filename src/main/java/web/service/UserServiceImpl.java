@@ -27,6 +27,16 @@ public class UserServiceImpl implements  UserService, UserDetailsService {
 
     @Transactional
     @Override
+    public User findUserByName (String name) {
+        if (name!=null) {
+            return userDao.findUserByName(name);
+        }
+        return null;
+    }
+
+
+    @Transactional
+    @Override
     public List getAllUsers() {
         return userDao.getAllUsers();
     }
